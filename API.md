@@ -319,8 +319,6 @@ The name event rule.
 
 ### CodePipelineStateChangeDetectionEventRuleProps <a name="CodePipelineStateChangeDetectionEventRuleProps" id="@gammarers/aws-codepipeline-state-change-detection-event-rule.CodePipelineStateChangeDetectionEventRuleProps"></a>
 
-Note: Not yet supported https://github.com/aws/jsii/issues/4468 type omitKeys = 'eventPattern'; export interface CodePipelineStateChangeDetectionEventRuleProps extends Omit<events.RuleProps, 'eventPattern'> {}.
-
 #### Initializer <a name="Initializer" id="@gammarers/aws-codepipeline-state-change-detection-event-rule.CodePipelineStateChangeDetectionEventRuleProps.Initializer"></a>
 
 ```typescript
