@@ -3,7 +3,7 @@ import { Template } from 'aws-cdk-lib/assertions';
 import * as events from 'aws-cdk-lib/aws-events';
 import { CodePipelineStateChangeDetectionEventRule } from '../src';
 
-describe('Rule Check', () => {
+describe('Default Rule Check', () => {
 
   const app = new App();
   const stack = new Stack(app, 'TestingStack', {
