@@ -14,10 +14,15 @@ export class CodePipelineStateChangeDetectionEventRule extends events.Rule {
   constructor(scope: Construct, id: string, props: CodePipelineStateChangeDetectionEventRuleProps) {
     super(scope, id, {
       ...props,
-      eventPattern: {
-        source: ['aws.codepipeline'],
-        detailType: ['CodePipeline Pipeline Execution State Change'],
-      },
+      eventPattern: (() => {
+        if (props.eventPattern) {
+          throw new Error('InvalidArgumentException: The specified argument eventPattern is predefined and should not be changed.');
+        }
+        return {
+          source: ['aws.codepipeline'],
+          detailType: ['CodePipeline Pipeline Execution State Change'],
+        };
+      })(),
     });
   }
 }
