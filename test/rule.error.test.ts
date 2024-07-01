@@ -20,7 +20,7 @@ describe('Error Rule Check', () => {
           detailType: ['CodePipeline Pipeline Execution State Change'],
         },
       });
-    }).toThrowError(/InvalidArgumentException: The specified argument eventPattern is predefined and should not be changed./);
+    }).toThrow(/InvalidArgumentException: The specified argument eventPattern is predefined and should not be changed./);
   });
 
 });
