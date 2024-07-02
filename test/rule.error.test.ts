@@ -1,5 +1,5 @@
 import { App, Stack } from 'aws-cdk-lib';
-import { CodePipelineStateChangeDetectionEventRule } from '../src';
+import { CodePipelineExecutionStateChangeDetectionEventRule } from '../src';
 
 describe('Error Rule Check', () => {
 
@@ -13,7 +13,7 @@ describe('Error Rule Check', () => {
 
   it('Should Error', () => {
     expect(() => {
-      new CodePipelineStateChangeDetectionEventRule(stack, 'CodePipelineStateChangeDetectionEventRule', {
+      new CodePipelineExecutionStateChangeDetectionEventRule(stack, 'CodePipelineExecutionStateChangeDetectionEventRule', {
         ruleName: 'codepipeline-state-change-detection-event-rule',
         eventPattern: {
           source: ['aws.codepipeline'],
