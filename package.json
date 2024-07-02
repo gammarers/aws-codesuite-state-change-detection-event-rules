@@ -1,8 +1,8 @@
 {
-  "name": "@gammarers/aws-codepipeline-state-change-detection-event-rule",
+  "name": "@gammarers/aws-codepipeline-execution-state-change-detection-event-rule",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gammarers/aws-codepipeline-state-change-detection-event-rule.git"
+    "url": "https://github.com/gammarers/aws-codepipeline-execution-state-change-detection-event-rule.git"
   },
   "scripts": {
     "build": "npx projen build",
