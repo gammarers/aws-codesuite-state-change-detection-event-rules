@@ -1,5 +1,5 @@
 import { App, Stack } from 'aws-cdk-lib';
-import { Template } from 'aws-cdk-lib/assertions';
+import { Template, Match } from 'aws-cdk-lib/assertions';
 import * as events from 'aws-cdk-lib/aws-events';
 import { CodePipelineStateChangeDetectionEventRule } from '../src';
 
@@ -17,13 +17,28 @@ describe('Default Rule Check', () => {
     ruleName: 'codepipeline-state-change-detection-event-rule',
   });
 
-  it('Is Rule', () => {
+  it('Is Rule', async () => {
     expect(rule).toBeInstanceOf(events.Rule);
   });
 
   const template = Template.fromStack(stack);
 
-  it('Should match snapshot.', () => {
+  it('Should match event rule.', async () => {
+    template.hasResourceProperties('AWS::Events::Rule', Match.objectEquals({
+      Name: 'codepipeline-state-change-detection-event-rule',
+      State: 'ENABLED',
+      EventPattern: Match.objectEquals({
+        'source': [
+          'aws.codepipeline',
+        ],
+        'detail-type': [
+          'CodePipeline Pipeline Execution State Change',
+        ],
+      }),
+    }));
+  });
+
+  it('Should match snapshot.', async () => {
     expect(template.toJSON()).toMatchSnapshot();
   });
 
