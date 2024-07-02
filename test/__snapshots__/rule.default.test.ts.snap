@@ -10,7 +10,7 @@ exports[`Default Rule Check Should match snapshot. 1`] = `
     },
   },
   "Resources": {
-    "CodePipelineStateChangeDetectionEventRule4EB7CAA9": {
+    "CodePipelineExecutionStateChangeDetectionEventRule98882579": {
       "Properties": {
         "EventPattern": {
           "detail-type": [
