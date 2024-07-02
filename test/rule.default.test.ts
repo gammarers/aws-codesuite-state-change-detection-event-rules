@@ -1,7 +1,7 @@
 import { App, Stack } from 'aws-cdk-lib';
 import { Template, Match } from 'aws-cdk-lib/assertions';
 import * as events from 'aws-cdk-lib/aws-events';
-import { CodePipelineStateChangeDetectionEventRule } from '../src';
+import { CodePipelineExecutionStateChangeDetectionEventRule } from '../src';
 
 describe('Default Rule Check', () => {
 
@@ -13,7 +13,7 @@ describe('Default Rule Check', () => {
     },
   });
 
-  const rule = new CodePipelineStateChangeDetectionEventRule(stack, 'CodePipelineStateChangeDetectionEventRule', {
+  const rule = new CodePipelineExecutionStateChangeDetectionEventRule(stack, 'CodePipelineExecutionStateChangeDetectionEventRule', {
     ruleName: 'codepipeline-state-change-detection-event-rule',
   });
 

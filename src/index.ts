@@ -8,10 +8,10 @@ import { Construct } from 'constructs';
  * export interface CodePipelineStateChangeDetectionEventRuleProps extends Omit<events.RuleProps, 'eventPattern'> {}
  */
 
-export interface CodePipelineStateChangeDetectionEventRuleProps extends events.RuleProps {}
+export interface CodePipelineExecutionStateChangeDetectionEventRuleProps extends events.RuleProps {}
 
-export class CodePipelineStateChangeDetectionEventRule extends events.Rule {
-  constructor(scope: Construct, id: string, props: CodePipelineStateChangeDetectionEventRuleProps) {
+export class CodePipelineExecutionStateChangeDetectionEventRule extends events.Rule {
+  constructor(scope: Construct, id: string, props: CodePipelineExecutionStateChangeDetectionEventRuleProps) {
     super(scope, id, {
       ...props,
       eventPattern: (() => {
