@@ -1,5 +1,6 @@
 {
   "name": "@gammarers/aws-codepipeline-execution-state-change-detection-event-rule",
+  "description": "This is an AWS CodePipeline execution state change detection event catch rule.",
   "repository": {
     "type": "git",
     "url": "https://github.com/gammarers/aws-codepipeline-execution-state-change-detection-event-rule.git"
