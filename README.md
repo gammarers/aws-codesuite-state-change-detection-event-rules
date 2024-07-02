@@ -37,7 +37,7 @@ bun add @gammarers/aws-codepipeline-execution-state-change-detection-event-rule
 ## Example
 
 ```typescript
-import { CodePipelineStateChangeDetectionEventRule } from '@gammarers/aws-codepipeline-execution-state-change-detection-event-rule';
+import { CodePipelineExecutionStateChangeDetectionEventRule } from '@gammarers/aws-codepipeline-execution-state-change-detection-event-rule';
 
 const fn = new lambda.Function(this, 'MyFunc', {
   runtime: lambda.Runtime.NODEJS_LATEST,
@@ -45,7 +45,7 @@ const fn = new lambda.Function(this, 'MyFunc', {
   code: lambda.Code.fromInline(`exports.handler = handler.toString()`),
 });
 
-const rule = new CodePipelineStateChangeDetectionEventRule(stack, 'CodePipelineStateChangeDetectionEventRule', {
+const rule = new CodePipelineExecutionStateChangeDetectionEventRule(stack, 'CodePipelineStateChangeDetectionEventRule', {
   ruleName: 'example-codepipeline-state-change-detection-event-rule',
   targets: new targets.LambdaFunction(fn),
 });
