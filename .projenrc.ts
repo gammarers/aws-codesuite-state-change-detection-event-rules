@@ -10,7 +10,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   name: '@gammarers/aws-codepipeline-state-change-detection-event-rule',
   projenrcTs: true,
   repositoryUrl: 'https://github.com/gammarers/aws-codepipeline-state-change-detection-event-rule.git',
-  releaseToNpm: false, // temporary
+  releaseToNpm: true,
   depsUpgrade: true,
   depsUpgradeOptions: {
     workflowOptions: {
