@@ -8,6 +8,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
   typescriptVersion: '5.4.x',
   jsiiVersion: '5.4.x',
   name: '@gammarers/aws-codepipeline-state-change-detection-event-rule',
+  majorVersion: 1,
   projenrcTs: true,
   repositoryUrl: 'https://github.com/gammarers/aws-codepipeline-state-change-detection-event-rule.git',
   npmAccess: javascript.NpmAccess.PUBLIC,
