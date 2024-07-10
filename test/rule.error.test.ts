@@ -1,3 +1,4 @@
+import { InvalidInternalDefinitionParameterError } from '@gammarers/aws-cdk-errors';
 import { App, Stack } from 'aws-cdk-lib';
 import { CodePipelineExecutionStateChangeDetectionEventRule } from '../src';
 
@@ -20,7 +21,7 @@ describe('Error Rule Check', () => {
           detailType: ['CodePipeline Pipeline Execution State Change'],
         },
       });
-    }).toThrow(/InvalidArgumentException: The specified argument eventPattern is predefined and should not be changed./);
+    }).toThrow(InvalidInternalDefinitionParameterError);
   });
 
 });
