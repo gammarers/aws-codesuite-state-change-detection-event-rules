@@ -12,6 +12,9 @@ const project = new awscdk.AwsCdkConstructLibrary({
   majorVersion: 1,
   projenrcTs: true,
   repositoryUrl: 'https://github.com/gammarers/aws-codepipeline-execution-state-change-detection-event-rule.git',
+  deps: [
+    '@gammarers/aws-cdk-errors@~0.2.0',
+  ],
   npmAccess: javascript.NpmAccess.PUBLIC,
   releaseToNpm: true,
   depsUpgrade: true,
