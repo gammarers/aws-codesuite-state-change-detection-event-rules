@@ -1,9 +1,9 @@
 {
-  "name": "@gammarers/aws-codepipeline-execution-state-change-detection-event-rule",
+  "name": "@gammarers/aws-codesuite-state-change-detection-event-rules",
   "description": "This is an AWS CodePipeline execution state change detection event catch rule.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gammarers/aws-codepipeline-execution-state-change-detection-event-rule.git"
+    "url": "https://github.com/gammarers/aws-codesuite-state-change-detection-event-rules.git"
   },
   "scripts": {
     "build": "npx projen build",

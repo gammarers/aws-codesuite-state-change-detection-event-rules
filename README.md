@@ -1,4 +1,4 @@
-# AWS CodePipeline Execution State Change Detection Event Rule
+# AWS CodeSuite State Change Detection Event Rule
 
 [![GitHub](https://img.shields.io/github/license/gammarers/aws-codepipeline-execution-state-change-detection-event-rule?style=flat-square)](https://github.com/gammarers/aws-codepipeline-execution-state-change-detection-event-rule/blob/main/LICENSE)
 [![npm (scoped)](https://img.shields.io/npm/v/@gammarers/aws-codepipeline-execution-state-change-detection-event-rule?style=flat-square)](https://www.npmjs.com/package/@gammarers/aws-codepipeline-execution-state-change-detection-event-rule)
