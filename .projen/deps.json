@@ -61,12 +61,12 @@
     },
     {
       "name": "jsii-rosetta",
-      "version": "5.4.x",
+      "version": "5.5.x",
       "type": "build"
     },
     {
       "name": "jsii",
-      "version": "5.4.x",
+      "version": "5.5.x",
       "type": "build"
     },
     {
@@ -83,7 +83,7 @@
     },
     {
       "name": "typescript",
-      "version": "5.4.x",
+      "version": "5.5.x",
       "type": "build"
     },
     {
@@ -98,7 +98,7 @@
     },
     {
       "name": "@gammarers/aws-cdk-errors",
-      "version": "~0.2.0",
+      "version": "^0.2.0",
       "type": "runtime"
     }
   ],
