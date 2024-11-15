@@ -339,6 +339,7 @@ const codePipelineExecutionStateChangeDetectionEventRuleProps: CodePipelineExecu
 | <code><a href="#@gammarers/aws-codesuite-state-change-detection-event-rules.CodePipelineExecutionStateChangeDetectionEventRuleProps.property.eventBus">eventBus</a></code> | <code>aws-cdk-lib.aws_events.IEventBus</code> | The event bus to associate with this rule. |
 | <code><a href="#@gammarers/aws-codesuite-state-change-detection-event-rules.CodePipelineExecutionStateChangeDetectionEventRuleProps.property.schedule">schedule</a></code> | <code>aws-cdk-lib.aws_events.Schedule</code> | The schedule or rate (frequency) that determines when EventBridge runs the rule. |
 | <code><a href="#@gammarers/aws-codesuite-state-change-detection-event-rules.CodePipelineExecutionStateChangeDetectionEventRuleProps.property.targets">targets</a></code> | <code>aws-cdk-lib.aws_events.IRuleTarget[]</code> | Targets to invoke when this rule matches an event. |
+| <code><a href="#@gammarers/aws-codesuite-state-change-detection-event-rules.CodePipelineExecutionStateChangeDetectionEventRuleProps.property.targetStates">targetStates</a></code> | <code><a href="#@gammarers/aws-codesuite-state-change-detection-event-rules.CodePipelineExecutionState">CodePipelineExecutionState</a>[]</code> | *No description.* |
 
 ---
 
@@ -464,5 +465,73 @@ target input, use `addTarget(target[, inputOptions])`.
 
 ---
 
+##### `targetStates`<sup>Optional</sup> <a name="targetStates" id="@gammarers/aws-codesuite-state-change-detection-event-rules.CodePipelineExecutionStateChangeDetectionEventRuleProps.property.targetStates"></a>
 
+```typescript
+public readonly targetStates: CodePipelineExecutionState[];
+```
+
+- *Type:* <a href="#@gammarers/aws-codesuite-state-change-detection-event-rules.CodePipelineExecutionState">CodePipelineExecutionState</a>[]
+
+---
+
+
+
+## Enums <a name="Enums" id="Enums"></a>
+
+### CodePipelineExecutionState <a name="CodePipelineExecutionState" id="@gammarers/aws-codesuite-state-change-detection-event-rules.CodePipelineExecutionState"></a>
+
+#### Members <a name="Members" id="Members"></a>
+
+| **Name** | **Description** |
+| --- | --- |
+| <code><a href="#@gammarers/aws-codesuite-state-change-detection-event-rules.CodePipelineExecutionState.CANCELED">CANCELED</a></code> | *No description.* |
+| <code><a href="#@gammarers/aws-codesuite-state-change-detection-event-rules.CodePipelineExecutionState.FAILED">FAILED</a></code> | *No description.* |
+| <code><a href="#@gammarers/aws-codesuite-state-change-detection-event-rules.CodePipelineExecutionState.RESUMED">RESUMED</a></code> | *No description.* |
+| <code><a href="#@gammarers/aws-codesuite-state-change-detection-event-rules.CodePipelineExecutionState.STARTED">STARTED</a></code> | *No description.* |
+| <code><a href="#@gammarers/aws-codesuite-state-change-detection-event-rules.CodePipelineExecutionState.STOPPED">STOPPED</a></code> | *No description.* |
+| <code><a href="#@gammarers/aws-codesuite-state-change-detection-event-rules.CodePipelineExecutionState.STOPPING">STOPPING</a></code> | *No description.* |
+| <code><a href="#@gammarers/aws-codesuite-state-change-detection-event-rules.CodePipelineExecutionState.SUCCEEDED">SUCCEEDED</a></code> | *No description.* |
+| <code><a href="#@gammarers/aws-codesuite-state-change-detection-event-rules.CodePipelineExecutionState.SUPERSEDED">SUPERSEDED</a></code> | *No description.* |
+
+---
+
+##### `CANCELED` <a name="CANCELED" id="@gammarers/aws-codesuite-state-change-detection-event-rules.CodePipelineExecutionState.CANCELED"></a>
+
+---
+
+
+##### `FAILED` <a name="FAILED" id="@gammarers/aws-codesuite-state-change-detection-event-rules.CodePipelineExecutionState.FAILED"></a>
+
+---
+
+
+##### `RESUMED` <a name="RESUMED" id="@gammarers/aws-codesuite-state-change-detection-event-rules.CodePipelineExecutionState.RESUMED"></a>
+
+---
+
+
+##### `STARTED` <a name="STARTED" id="@gammarers/aws-codesuite-state-change-detection-event-rules.CodePipelineExecutionState.STARTED"></a>
+
+---
+
+
+##### `STOPPED` <a name="STOPPED" id="@gammarers/aws-codesuite-state-change-detection-event-rules.CodePipelineExecutionState.STOPPED"></a>
+
+---
+
+
+##### `STOPPING` <a name="STOPPING" id="@gammarers/aws-codesuite-state-change-detection-event-rules.CodePipelineExecutionState.STOPPING"></a>
+
+---
+
+
+##### `SUCCEEDED` <a name="SUCCEEDED" id="@gammarers/aws-codesuite-state-change-detection-event-rules.CodePipelineExecutionState.SUCCEEDED"></a>
+
+---
+
+
+##### `SUPERSEDED` <a name="SUPERSEDED" id="@gammarers/aws-codesuite-state-change-detection-event-rules.CodePipelineExecutionState.SUPERSEDED"></a>
+
+---
 
