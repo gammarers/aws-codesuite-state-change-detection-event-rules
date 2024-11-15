@@ -9,7 +9,20 @@ import { Construct } from 'constructs';
  * export interface CodePipelineStateChangeDetectionEventRuleProps extends Omit<events.RuleProps, 'eventPattern'> {}
  */
 
-export interface CodePipelineExecutionStateChangeDetectionEventRuleProps extends events.RuleProps {}
+export enum CodePipelineExecutionState {
+  CANCELED = 'CANCELED',
+  FAILED = 'FAILED',
+  RESUMED = 'RESUMED',
+  STARTED = 'STARTED',
+  STOPPED = 'STOPPED',
+  STOPPING = 'STOPPING',
+  SUCCEEDED = 'SUCCEEDED',
+  SUPERSEDED = 'SUPERSEDED',
+}
+
+export interface CodePipelineExecutionStateChangeDetectionEventRuleProps extends events.RuleProps {
+  readonly targetStates?: CodePipelineExecutionState[];
+}
 
 export class CodePipelineExecutionStateChangeDetectionEventRule extends events.Rule {
   constructor(scope: Construct, id: string, props: CodePipelineExecutionStateChangeDetectionEventRuleProps) {
@@ -22,6 +35,17 @@ export class CodePipelineExecutionStateChangeDetectionEventRule extends events.R
         return {
           source: ['aws.codepipeline'],
           detailType: ['CodePipeline Pipeline Execution State Change'],
+          //          detail: {
+          //            state: props.targetStates,
+          //          },
+          detail: (() => {
+            if (props.targetStates) {
+              return {
+                state: props.targetStates,
+              };
+            }
+            return undefined;
+          })(),
         };
       })(),
     });
