@@ -13,12 +13,6 @@ exports[`Default Rule Check Should match snapshot. 1`] = `
     "CodePipelineStageExecutionStateChangeDetectionEventRule82400530": {
       "Properties": {
         "EventPattern": {
-          "detail": {
-            "state": [
-              "FAILED",
-              "CANCELED",
-            ],
-          },
           "detail-type": [
             "CodePipeline Stage Execution State Change",
           ],
@@ -26,7 +20,6 @@ exports[`Default Rule Check Should match snapshot. 1`] = `
             "aws.codepipeline",
           ],
         },
-        "Name": "codepipeline-stage-exec-state-change-detection-event-rule",
         "State": "ENABLED",
       },
       "Type": "AWS::Events::Rule",
