@@ -36,6 +36,8 @@ bun add @gammarers/aws-codesuite-state-change-detection-event-rules
 
 ## Example
 
+### CodePipeline Pipeline Execution State Change Detection Event Rule Handling
+
 ```typescript
 import { CodePipelineExecutionStateChangeDetectionEventRule } from '@gammarers/aws-codesuite-state-change-detection-event-rules';
 
@@ -51,6 +53,24 @@ const rule = new CodePipelineExecutionStateChangeDetectionEventRule(stack, 'Code
 });
 
 ```
+
+### CodePipeline Stage Execution State Chagen Detection Event Rule Handling
+
+```ts
+import { CodePipelineStageExecutionStateChangeDetectionEventRule } from '@gammarers/aws-codesuite-state-change-detection-event-rules';
+
+const fn = new lambda.Function(this, 'MyFunc', {
+  runtime: lambda.Runtime.NODEJS_LATEST,
+  handler: 'index.handler',
+  code: lambda.Code.fromInline(`exports.handler = handler.toString()`),
+});
+
+const rule = new CodePipelineStageExecutionStateChangeDetectionEventRule(stack, 'CodePipelineStageExecutionStateChangeDetectionEventRule', {
+  targets: new targets.LambdaFunction(fn),
+});
+
+```
+
 
 ## License
 
