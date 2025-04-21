@@ -1,7 +1,7 @@
 import { App, Stack } from 'aws-cdk-lib';
 import { Template, Match } from 'aws-cdk-lib/assertions';
 import * as events from 'aws-cdk-lib/aws-events';
-import { CodePipelineStageExecutionState, CodePipelineStageExecutionStateChangeDetectionEventRule } from '../src';
+import { CodePipelineStageExecutionStateChangeDetectionEventRule } from '../src';
 
 describe('Default Rule Check', () => {
 
@@ -9,11 +9,7 @@ describe('Default Rule Check', () => {
   const stack = new Stack(app, 'TestingStack');
 
   const rule = new CodePipelineStageExecutionStateChangeDetectionEventRule(stack, 'CodePipelineStageExecutionStateChangeDetectionEventRule', {
-    ruleName: 'codepipeline-stage-exec-state-change-detection-event-rule',
-    targetStates: [
-      CodePipelineStageExecutionState.FAILED,
-      CodePipelineStageExecutionState.CANCELED,
-    ],
+    //ruleName: 'codepipeline-stage-exec-state-change-detection-event-rule',
   });
 
   it('Is Rule', async () => {
@@ -24,7 +20,7 @@ describe('Default Rule Check', () => {
 
   it('Should match event rule.', async () => {
     template.hasResourceProperties('AWS::Events::Rule', Match.objectEquals({
-      Name: 'codepipeline-stage-exec-state-change-detection-event-rule',
+      //Name: 'codepipeline-state-change-detection-event-rule',
       State: 'ENABLED',
       EventPattern: Match.objectEquals({
         'source': [
@@ -33,9 +29,6 @@ describe('Default Rule Check', () => {
         'detail-type': [
           'CodePipeline Stage Execution State Change',
         ],
-        'detail': {
-          state: Match.arrayEquals(['FAILED', 'CANCELED']),
-        },
       }),
     }));
   });
