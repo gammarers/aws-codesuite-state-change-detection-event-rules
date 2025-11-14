@@ -9,10 +9,7 @@ import { Construct } from 'constructs';
  * export interface CodePipelineStateChangeDetectionEventRuleProps extends Omit<events.RuleProps, 'eventPattern'> {}
  */
 
-/**
- * @deprecated This enum is deprecated. Use the CodePipelinePipelineExecutionState enum instead.
- */
-export enum CodePipelineExecutionState {
+export enum CodePipelinePipelineExecutionState {
   CANCELED = 'CANCELED',
   FAILED = 'FAILED',
   RESUMED = 'RESUMED',
@@ -23,18 +20,12 @@ export enum CodePipelineExecutionState {
   SUPERSEDED = 'SUPERSEDED',
 }
 
-/**
- * @deprecated This interface  is deprecated. Use the CodePipelinePipelineExecutionStateChangeDetectionEventRuleProps interface instead.
- */
-export interface CodePipelineExecutionStateChangeDetectionEventRuleProps extends events.RuleProps {
-  readonly targetStates?: CodePipelineExecutionState[];
+export interface CodePipelinePipelineExecutionStateChangeDetectionEventRuleProps extends events.RuleProps {
+  readonly targetStates?: CodePipelinePipelineExecutionState[];
 }
 
-/**
- * @deprecated This class is deprecated. Use the CodePipelinePipelineExecutionStateChangeDetectionEventRule class instead.
- */
-export class CodePipelineExecutionStateChangeDetectionEventRule extends events.Rule {
-  constructor(scope: Construct, id: string, props: CodePipelineExecutionStateChangeDetectionEventRuleProps) {
+export class CodePipelinePipelineExecutionStateChangeDetectionEventRule extends events.Rule {
+  constructor(scope: Construct, id: string, props: CodePipelinePipelineExecutionStateChangeDetectionEventRuleProps) {
     super(scope, id, {
       ...props,
       eventPattern: ((): events.EventPattern => {
@@ -44,9 +35,6 @@ export class CodePipelineExecutionStateChangeDetectionEventRule extends events.R
         return {
           source: ['aws.codepipeline'],
           detailType: ['CodePipeline Pipeline Execution State Change'],
-          //          detail: {
-          //            state: props.targetStates,
-          //          },
           detail: (() => {
             if (props.targetStates) {
               return {
