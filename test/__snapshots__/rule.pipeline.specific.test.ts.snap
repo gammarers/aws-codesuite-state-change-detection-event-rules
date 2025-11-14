@@ -10,7 +10,7 @@ exports[`Default Rule Check Should match snapshot. 1`] = `
     },
   },
   "Resources": {
-    "CodePipelineStageExecutionStateChangeDetectionEventRule82400530": {
+    "CodePipelinePipelineExecutionStateChangeDetectionEventRule5D29251E": {
       "Properties": {
         "EventPattern": {
           "detail": {
@@ -20,13 +20,13 @@ exports[`Default Rule Check Should match snapshot. 1`] = `
             ],
           },
           "detail-type": [
-            "CodePipeline Stage Execution State Change",
+            "CodePipeline Pipeline Execution State Change",
           ],
           "source": [
             "aws.codepipeline",
           ],
         },
-        "Name": "codepipeline-stage-exec-state-change-detection-event-rule",
+        "Name": "codepipeline-state-change-detection-event-rule",
         "State": "ENABLED",
       },
       "Type": "AWS::Events::Rule",

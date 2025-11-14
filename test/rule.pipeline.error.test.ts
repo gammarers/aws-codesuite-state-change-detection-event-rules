@@ -1,6 +1,6 @@
 import { InvalidInternalDefinitionParameterError } from '@gammarers/aws-cdk-errors';
 import { App, Stack } from 'aws-cdk-lib';
-import { CodePipelineExecutionStateChangeDetectionEventRule } from '../src';
+import { CodePipelinePipelineExecutionStateChangeDetectionEventRule } from '../src';
 
 describe('Error Rule Check', () => {
 
@@ -14,7 +14,7 @@ describe('Error Rule Check', () => {
 
   it('Should Error', () => {
     expect(() => {
-      new CodePipelineExecutionStateChangeDetectionEventRule(stack, 'CodePipelineExecutionStateChangeDetectionEventRule', {
+      new CodePipelinePipelineExecutionStateChangeDetectionEventRule(stack, 'CodePipelinePipelineExecutionStateChangeDetectionEventRule', {
         ruleName: 'codepipeline-state-change-detection-event-rule',
         eventPattern: {
           source: ['aws.codepipeline'],
