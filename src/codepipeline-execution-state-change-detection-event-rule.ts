@@ -9,6 +9,9 @@ import { Construct } from 'constructs';
  * export interface CodePipelineStateChangeDetectionEventRuleProps extends Omit<events.RuleProps, 'eventPattern'> {}
  */
 
+/**
+ * @deprecated This enum is deprecated. Use the CodePipelinePipelineExecutionState enum instead.
+ */
 export enum CodePipelineExecutionState {
   CANCELED = 'CANCELED',
   FAILED = 'FAILED',
@@ -20,10 +23,16 @@ export enum CodePipelineExecutionState {
   SUPERSEDED = 'SUPERSEDED',
 }
 
+/**
+ * @deprecated This interface  is deprecated. Use the CodePipelinePipelineExecutionStateChangeDetectionEventRuleProps interface instead.
+ */
 export interface CodePipelineExecutionStateChangeDetectionEventRuleProps extends events.RuleProps {
   readonly targetStates?: CodePipelineExecutionState[];
 }
 
+/**
+ * @deprecated This class is deprecated. Use the CodePipelinePipelineExecutionStateChangeDetectionEventRule class instead.
+ */
 export class CodePipelineExecutionStateChangeDetectionEventRule extends events.Rule {
   constructor(scope: Construct, id: string, props: CodePipelineExecutionStateChangeDetectionEventRuleProps) {
     super(scope, id, {
