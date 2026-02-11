@@ -1,13 +1,5 @@
-import { InvalidInternalDefinitionParameterError } from '@gammarers/aws-cdk-errors';
 import * as events from 'aws-cdk-lib/aws-events';
 import { Construct } from 'constructs';
-
-/**
- * @TODO: Not yet supported Omit
- * https://github.com/aws/jsii/issues/4468
- * type omitKeys = 'eventPattern';
- * export interface CodePipelineStateChangeDetectionEventRuleProps extends Omit<events.RuleProps, 'eventPattern'> {}
- */
 
 export enum CodePipelinePipelineExecutionState {
   CANCELED = 'CANCELED',
@@ -21,6 +13,7 @@ export enum CodePipelinePipelineExecutionState {
 }
 
 export interface CodePipelinePipelineExecutionStateChangeDetectionEventRuleProps extends events.RuleProps {
+  readonly eventPattern?: never;
   readonly targetStates?: CodePipelinePipelineExecutionState[];
 }
 
@@ -29,9 +22,6 @@ export class CodePipelinePipelineExecutionStateChangeDetectionEventRule extends 
     super(scope, id, {
       ...props,
       eventPattern: ((): events.EventPattern => {
-        if (props.eventPattern) {
-          throw new InvalidInternalDefinitionParameterError('eventPattern');
-        }
         return {
           source: ['aws.codepipeline'],
           detailType: ['CodePipeline Pipeline Execution State Change'],
