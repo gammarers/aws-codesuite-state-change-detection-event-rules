@@ -1,76 +1,127 @@
-# AWS CodeSuite State Change Detection Event Rule
+# AWS CodePipeline State Change Detection Event Rules
 
-[![GitHub](https://img.shields.io/github/license/gammarers/aws-codesuite-state-change-detection-event-rules?style=flat-square)](https://github.com/gammarers/aws-codesuite-state-change-detection-event-rules/blob/main/LICENSE)
-[![npm (scoped)](https://img.shields.io/npm/v/@gammarers/aws-codesuite-state-change-detection-event-rules?style=flat-square)](https://www.npmjs.com/package/@gammarers/aws-codesuite-state-change-detection-event-rules)
-[![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/gammarers/aws-codesuite-state-change-detection-event-rules/release.yml?branch=main&label=release&style=flat-square)](https://github.com/gammarers/aws-codesuite-state-change-detection-event-rules/actions/workflows/release.yml)
-[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/gammarers/aws-codesuite-state-change-detection-event-rules?sort=semver&style=flat-square)](https://github.com/gammarers/aws-codesuite-state-change-detection-event-rules/releases)
+[![GitHub](https://img.shields.io/github/license/gammarers-aws-cdk-resources/aws-codepipeline-state-change-detection-event-rules?style=flat-square)](https://github.com/gammarers-aws-cdk-resources/aws-codepipeline-state-change-detection-event-rules/blob/main/LICENSE)
+[![npm](https://img.shields.io/npm/v/aws-codepipeline-state-change-detection-event-rules?style=flat-square)](https://www.npmjs.com/package/aws-codepipeline-state-change-detection-event-rules)
+[![GitHub Workflow Status (branch)](https://img.shields.io/github/actions/workflow/status/gammarers-aws-cdk-resources/aws-codepipeline-state-change-detection-event-rules/release.yml?branch=main&label=release&style=flat-square)](https://github.com/gammarers-aws-cdk-resources/aws-codepipeline-state-change-detection-event-rules/actions/workflows/release.yml)
+[![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/gammarers-aws-cdk-resources/aws-codepipeline-state-change-detection-event-rules?sort=semver&style=flat-square)](https://github.com/gammarers-aws-cdk-resources/aws-codepipeline-state-change-detection-event-rules/releases)
 
-[![View on Construct Hub](https://constructs.dev/badge?package=@gammarers/aws-codesuite-state-change-detection-event-rules)](https://constructs.dev/packages/@gammarers/aws-codesuite-state-change-detection-event-rules)
+[![View on Construct Hub](https://constructs.dev/badge?package=aws-codepipeline-state-change-detection-event-rules)](https://constructs.dev/packages/aws-codepipeline-state-change-detection-event-rules)
 
-This an AWS CodePipeline execution state change detection event rule
+An AWS CDK construct library that defines EventBridge rules to detect pipeline and stage execution state changes in AWS CodePipeline.
 
-## Install
+## Provided Constructs
+
+| Construct | Description |
+|-----------|-------------|
+| `CodePipelinePipelineExecutionStateChangeDetectionEventRule` | Rule that detects pipeline-wide execution state changes (started, succeeded, failed, etc.) |
+| `CodePipelineStageExecutionStateChangeDetectionEventRule` | Rule that detects per-stage execution state changes |
+
+Both extend `events.Rule` and allow filtering by state via `targetStates` (all states when omitted). The event pattern is fixed by each construct; passing `eventPattern` in props is not supported and will throw at runtime.
+
+## Installation
 
 ### TypeScript
 
-#### install by npm
+**npm:**
 
 ```shell
-npm install @gammarers/aws-codesuite-state-change-detection-event-rules
+npm install aws-codepipeline-state-change-detection-event-rules
 ```
-#### install by yarn
+
+**yarn:**
 
 ```shell
-yarn add @gammarers/aws-codesuite-state-change-detection-event-rules
-```
-#### install by pnpm
-
-```shell
-pnpm add @gammarers/aws-codesuite-state-change-detection-event-rules
-```
-#### install by bun
-
-```shell
-bun add @gammarers/aws-codesuite-state-change-detection-event-rules
+yarn add aws-codepipeline-state-change-detection-event-rules
 ```
 
-## Example
+## Examples
 
-### CodePipeline Pipeline Execution State Change Detection Event Rule Handling
+### Pipeline execution state change detection
+
+Example that invokes a Lambda when the pipeline execution state (started, succeeded, failed, canceled, etc.) changes. When `targetStates` is specified, the target is invoked only for those states.
 
 ```typescript
-import { CodePipelineExecutionStateChangeDetectionEventRule } from '@gammarers/aws-codesuite-state-change-detection-event-rules';
+import * as cdk from 'aws-cdk-lib';
+import * as lambda from 'aws-cdk-lib/aws-lambda';
+import * as events_targets from 'aws-cdk-lib/aws-events-targets';
+import {
+  CodePipelinePipelineExecutionState,
+  CodePipelinePipelineExecutionStateChangeDetectionEventRule,
+} from 'aws-codepipeline-state-change-detection-event-rules';
 
-const fn = new lambda.Function(this, 'MyFunc', {
+const app = new cdk.App();
+const stack = new cdk.Stack(app, 'MyStack');
+
+const fn = new lambda.Function(stack, 'MyFunc', {
   runtime: lambda.Runtime.NODEJS_LATEST,
   handler: 'index.handler',
-  code: lambda.Code.fromInline(`exports.handler = handler.toString()`),
+  code: lambda.Code.fromInline(`exports.handler = async () => {}`),
 });
 
-const rule = new CodePipelineExecutionStateChangeDetectionEventRule(stack, 'CodePipelineStateChangeDetectionEventRule', {
-  ruleName: 'example-codepipeline-state-change-detection-event-rules',
-  targets: new targets.LambdaFunction(fn),
-});
-
+const rule = new CodePipelinePipelineExecutionStateChangeDetectionEventRule(
+  stack,
+  'PipelineStateChangeRule',
+  {
+    ruleName: 'my-pipeline-state-change-rule',
+    targets: [new events_targets.LambdaFunction(fn)],
+    // When omitted, all states. When specified, triggers only for those states.
+    targetStates: [
+      CodePipelinePipelineExecutionState.FAILED,
+      CodePipelinePipelineExecutionState.SUCCEEDED,
+    ],
+  }
+);
 ```
 
-### CodePipeline Stage Execution State Chagen Detection Event Rule Handling
+### Stage execution state change detection
 
-```ts
-import { CodePipelineStageExecutionStateChangeDetectionEventRule } from '@gammarers/aws-codesuite-state-change-detection-event-rules';
+Example that detects per-stage execution state changes and invokes a Lambda.
 
-const fn = new lambda.Function(this, 'MyFunc', {
+```typescript
+import * as cdk from 'aws-cdk-lib';
+import * as lambda from 'aws-cdk-lib/aws-lambda';
+import * as events_targets from 'aws-cdk-lib/aws-events-targets';
+import {
+  CodePipelineStageExecutionState,
+  CodePipelineStageExecutionStateChangeDetectionEventRule,
+} from 'aws-codepipeline-state-change-detection-event-rules';
+
+const app = new cdk.App();
+const stack = new cdk.Stack(app, 'MyStack');
+
+const fn = new lambda.Function(stack, 'MyFunc', {
   runtime: lambda.Runtime.NODEJS_LATEST,
   handler: 'index.handler',
-  code: lambda.Code.fromInline(`exports.handler = handler.toString()`),
+  code: lambda.Code.fromInline(`exports.handler = async () => {}`),
 });
 
-const rule = new CodePipelineStageExecutionStateChangeDetectionEventRule(stack, 'CodePipelineStageExecutionStateChangeDetectionEventRule', {
-  targets: new targets.LambdaFunction(fn),
-});
-
+const rule = new CodePipelineStageExecutionStateChangeDetectionEventRule(
+  stack,
+  'StageStateChangeRule',
+  {
+    ruleName: 'my-stage-state-change-rule',
+    targets: [new events_targets.LambdaFunction(fn)],
+    targetStates: [
+      CodePipelineStageExecutionState.FAILED,
+      CodePipelineStageExecutionState.SUCCEEDED,
+    ],
+  }
+);
 ```
 
+## Detectable states
+
+### Pipeline execution states (CodePipelinePipelineExecutionState)
+
+`CANCELED` / `FAILED` / `RESUMED` / `STARTED` / `STOPPED` / `STOPPING` / `SUCCEEDED` / `SUPERSEDED`
+
+### Stage execution states (CodePipelineStageExecutionState)
+
+`CANCELED` / `FAILED` / `RESUMED` / `STARTED` / `STOPPED` / `STOPPING` / `SUCCEEDED`
+
+## API reference
+
+See [API.md](./API.md) for details.
 
 ## License
 

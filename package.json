@@ -1,9 +1,9 @@
 {
-  "name": "@gammarers/aws-codesuite-state-change-detection-event-rules",
+  "name": "aws-codepipeline-state-change-detection-event-rules",
   "description": "This is an AWS CodePipeline execution state change detection event catch rule.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/gammarers/aws-codesuite-state-change-detection-event-rules.git"
+    "url": "https://github.com/gammarers-aws-cdk-resources/aws-codepipeline-state-change-detection-event-rules.git"
   },
   "scripts": {
     "build": "npx projen build",
@@ -32,12 +32,12 @@
   "author": {
     "name": "yicr",
     "email": "yicr@users.noreply.github.com",
-    "organization": true
+    "organization": false
   },
   "devDependencies": {
     "@stylistic/eslint-plugin": "^2",
     "@types/jest": "^29.5.14",
-    "@types/node": "^18",
+    "@types/node": "^20",
     "@typescript-eslint/eslint-plugin": "^8",
     "@typescript-eslint/parser": "^8",
     "aws-cdk-lib": "2.189.1",
@@ -48,28 +48,25 @@
     "eslint-plugin-import": "^2.32.0",
     "jest": "^29.7.0",
     "jest-junit": "^16",
-    "jsii": "5.8.x",
+    "jsii": "5.9.x",
     "jsii-diff": "^1.126.0",
     "jsii-docgen": "^10.5.0",
     "jsii-pacmak": "^1.126.0",
-    "jsii-rosetta": "5.8.x",
+    "jsii-rosetta": "5.9.x",
     "projen": "^0.99.10",
     "ts-jest": "^29.4.6",
     "ts-node": "^10.9.2",
-    "typescript": "5.8.x"
+    "typescript": "5.9.x"
   },
   "peerDependencies": {
     "aws-cdk-lib": "^2.189.1",
     "constructs": "^10.0.5"
   },
-  "dependencies": {
-    "@gammarers/aws-cdk-errors": "^0.2.0"
-  },
   "keywords": [
     "cdk"
   ],
   "engines": {
-    "node": ">= 18.0.0"
+    "node": ">= 20.0.0"
   },
   "main": "lib/index.js",
   "license": "Apache-2.0",
