@@ -2,16 +2,15 @@ import { awscdk, javascript } from 'projen';
 const project = new awscdk.AwsCdkConstructLibrary({
   author: 'yicr',
   authorAddress: 'yicr@users.noreply.github.com',
-  authorOrganization: true,
   cdkVersion: '2.189.1',
   defaultReleaseBranch: 'main',
   typescriptVersion: '5.9.x',
   jsiiVersion: '5.9.x',
-  name: '@gammarers/aws-codesuite-state-change-detection-event-rules',
+  name: 'aws-codepipeline-state-change-detection-event-rules',
   description: 'This is an AWS CodePipeline execution state change detection event catch rule.',
   majorVersion: 2,
   projenrcTs: true,
-  repositoryUrl: 'https://github.com/gammarers/aws-codesuite-state-change-detection-event-rules.git',
+  repositoryUrl: 'https://github.com/gammarers-aws-cdk-resources/aws-codepipeline-state-change-detection-event-rules.git',
   deps: [
     '@gammarers/aws-cdk-errors@^0.2.0',
   ],
