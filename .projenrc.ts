@@ -11,9 +11,9 @@ const project = new awscdk.AwsCdkConstructLibrary({
   majorVersion: 3,
   projenrcTs: true,
   repositoryUrl: 'https://github.com/gammarers-aws-cdk-resources/aws-codepipeline-state-change-detection-event-rules.git',
-  npmAccess: javascript.NpmAccess.PUBLIC,
   releaseToNpm: true,
-  depsUpgrade: true,
+  npmTrustedPublishing: true,
+  npmAccess: javascript.NpmAccess.PUBLIC,
   depsUpgradeOptions: {
     workflowOptions: {
       labels: ['auto-approve', 'auto-merge'],
