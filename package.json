@@ -62,9 +62,6 @@
     "aws-cdk-lib": "^2.189.1",
     "constructs": "^10.0.5"
   },
-  "dependencies": {
-    "@gammarers/aws-cdk-errors": "^0.2.0"
-  },
   "keywords": [
     "cdk"
   ],

@@ -390,11 +390,6 @@
     "@eslint/core" "^0.17.0"
     levn "^0.4.1"
 
-"@gammarers/aws-cdk-errors@^0.2.0":
-  version "0.2.105"
-  resolved "https://registry.yarnpkg.com/@gammarers/aws-cdk-errors/-/aws-cdk-errors-0.2.105.tgz#6bb16a2fda34f8c313aa37eddd8e69d24e11ec9b"
-  integrity sha512-4lur0yb1xy4qfpeN/eKVaGTzQ/8ZT7YO2imOrPr5P7e9y1wW3XzBx/C+Au5Us0d7qLRtGiayu0xq8lJrBxCDqw==
-
 "@humanfs/core@^0.19.1":
   version "0.19.1"
   resolved "https://registry.yarnpkg.com/@humanfs/core/-/core-0.19.1.tgz#17c55ca7d426733fe3c561906b8173c336b40a77"
