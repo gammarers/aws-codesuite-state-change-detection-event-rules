@@ -24,7 +24,7 @@ const project = new awscdk.AwsCdkConstructLibrary({
       schedule: javascript.UpgradeDependenciesSchedule.expressions(['5 18 * * 4']), // every thursday 18:00
     },
   },
-  minNodeVersion: '18.0.0',
+  minNodeVersion: '20.0.0',
   workflowNodeVersion: '22.x',
   autoApproveOptions: {
     secret: 'GITHUB_TOKEN',
