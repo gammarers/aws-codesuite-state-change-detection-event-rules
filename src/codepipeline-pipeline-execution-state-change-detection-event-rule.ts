@@ -13,7 +13,6 @@ export enum CodePipelinePipelineExecutionState {
 }
 
 export interface CodePipelinePipelineExecutionStateChangeDetectionEventRuleProps extends events.RuleProps {
-  readonly eventPattern?: never;
   readonly targetStates?: CodePipelinePipelineExecutionState[];
 }
 
@@ -22,6 +21,9 @@ export class CodePipelinePipelineExecutionStateChangeDetectionEventRule extends 
     super(scope, id, {
       ...props,
       eventPattern: ((): events.EventPattern => {
+        if (props.eventPattern) {
+          throw new Error('eventPattern is not supported for this rule');
+        }
         return {
           source: ['aws.codepipeline'],
           detailType: ['CodePipeline Pipeline Execution State Change'],
