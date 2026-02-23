@@ -55,6 +55,7 @@ do not set `eventPattern`.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#aws-codepipeline-state-change-detection-event-rules.CodePipelinePipelineExecutionStateChangeDetectionEventRule.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#aws-codepipeline-state-change-detection-event-rules.CodePipelinePipelineExecutionStateChangeDetectionEventRule.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#aws-codepipeline-state-change-detection-event-rules.CodePipelinePipelineExecutionStateChangeDetectionEventRule.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#aws-codepipeline-state-change-detection-event-rules.CodePipelinePipelineExecutionStateChangeDetectionEventRule.addEventPattern">addEventPattern</a></code> | Adds an event pattern filter to this rule. |
 | <code><a href="#aws-codepipeline-state-change-detection-event-rules.CodePipelinePipelineExecutionStateChangeDetectionEventRule.addTarget">addTarget</a></code> | Adds a target to the rule. The abstract class RuleTarget can be extended to define new targets. |
@@ -68,6 +69,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="aws-codepipeline-state-change-detection-event-rules.CodePipelinePipelineExecutionStateChangeDetectionEventRule.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="aws-codepipeline-state-change-detection-event-rules.CodePipelinePipelineExecutionStateChangeDetectionEventRule.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="aws-codepipeline-state-change-detection-event-rules.CodePipelinePipelineExecutionStateChangeDetectionEventRule.applyRemovalPolicy"></a>
 
@@ -394,6 +416,7 @@ do not set `eventPattern`.
 | **Name** | **Description** |
 | --- | --- |
 | <code><a href="#aws-codepipeline-state-change-detection-event-rules.CodePipelineStageExecutionStateChangeDetectionEventRule.toString">toString</a></code> | Returns a string representation of this construct. |
+| <code><a href="#aws-codepipeline-state-change-detection-event-rules.CodePipelineStageExecutionStateChangeDetectionEventRule.with">with</a></code> | Applies one or more mixins to this construct. |
 | <code><a href="#aws-codepipeline-state-change-detection-event-rules.CodePipelineStageExecutionStateChangeDetectionEventRule.applyRemovalPolicy">applyRemovalPolicy</a></code> | Apply the given removal policy to this resource. |
 | <code><a href="#aws-codepipeline-state-change-detection-event-rules.CodePipelineStageExecutionStateChangeDetectionEventRule.addEventPattern">addEventPattern</a></code> | Adds an event pattern filter to this rule. |
 | <code><a href="#aws-codepipeline-state-change-detection-event-rules.CodePipelineStageExecutionStateChangeDetectionEventRule.addTarget">addTarget</a></code> | Adds a target to the rule. The abstract class RuleTarget can be extended to define new targets. |
@@ -407,6 +430,27 @@ public toString(): string
 ```
 
 Returns a string representation of this construct.
+
+##### `with` <a name="with" id="aws-codepipeline-state-change-detection-event-rules.CodePipelineStageExecutionStateChangeDetectionEventRule.with"></a>
+
+```typescript
+public with(mixins: ...IMixin[]): IConstruct
+```
+
+Applies one or more mixins to this construct.
+
+Mixins are applied in order. The list of constructs is captured at the
+start of the call, so constructs added by a mixin will not be visited.
+Use multiple `with()` calls if subsequent mixins should apply to added
+constructs.
+
+###### `mixins`<sup>Required</sup> <a name="mixins" id="aws-codepipeline-state-change-detection-event-rules.CodePipelineStageExecutionStateChangeDetectionEventRule.with.parameter.mixins"></a>
+
+- *Type:* ...constructs.IMixin[]
+
+The mixins to apply.
+
+---
 
 ##### `applyRemovalPolicy` <a name="applyRemovalPolicy" id="aws-codepipeline-state-change-detection-event-rules.CodePipelineStageExecutionStateChangeDetectionEventRule.applyRemovalPolicy"></a>
 
